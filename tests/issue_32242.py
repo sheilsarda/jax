@@ -54,12 +54,6 @@ file make it wait for a debugger to attach before continuing execution.
 import jax
 import jax.numpy as jnp
 
-import debugpy
-debugpy.listen(5678)
-print("Waiting for debugger attach...")
-debugpy.wait_for_client()
-
-
 def f(b, x):
   out = jax.nn.dot_product_attention(x, x, x, bias=b, implementation='cudnn')
   return jnp.sum(out)
